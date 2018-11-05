@@ -163,11 +163,11 @@ int main(void)
 	ASSERT(location != -1);
 	GLCall(glUniform4f(location, 0.8f, 0.3f, 0.5f, 1.0f));
 
+	//I don't know why this codes are here. it works without these codes.
 	/*GLCall(glBindVertexArray(0));
 	GLCall(glUseProgram(0));
 	GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
 	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));*/
-
 
 	float r = 0.0f;
 	float increment = 0.05f;
@@ -184,15 +184,11 @@ int main(void)
 		GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, idxObjBuffer));
 
 		GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
-		//glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		if (r > 1.0f) {
+		if (r > 1.0f) 
 			increment = -0.05f;
-		}
-		else if (r < 0.0f) {
+		else if (r < 0.0f) 
 			increment = 0.05f;
-		}
-
 		r += increment;
 
 		/* Swap front and back buffers */
